@@ -12,7 +12,7 @@ import { useControls, folder } from "leva";
 
 function Layout({
   children,
-  bg = "#393939",
+  bg = "#333",
 }: {
   children?: ReactNode;
   bg?: string;
@@ -23,8 +23,8 @@ function Layout({
         bg,
         grid: true,
         axes: true,
-        ambientIntensity: 1,
-        spotLightIntensity: 50,
+        ambientIntensity: 0.15,
+        spotLightIntensity: 250,
         spotLightHelper: false,
       },
       { collapsed: true }
@@ -56,8 +56,8 @@ function Layout({
       />
       <ambientLight intensity={gui.ambientIntensity} />
 
-      {gui.grid && <gridHelper args={[30, 30, 30]} position-y=".01" />}
-      {gui.axes && <axesHelper args={[5]} />}
+      {/* {gui.grid && <gridHelper args={[30, 30, 30]} position-y=".01" />}
+      {gui.axes && <axesHelper args={[5]} />} */}
 
       {children}
     </>
@@ -68,8 +68,8 @@ function Camera() {
   const [gui, setGui] = useControls(() => ({
     Camera: folder(
       {
-        fov: 50,
-        position: { value: [0, 2.0, 21.0], step: 0.1 },
+        fov: 35,
+        position: { value: [0, -0.2, 2], step: 0.1 },
         // lookAt: {
         //   value: [0, 0, 0],
         //   step: 0.1,
